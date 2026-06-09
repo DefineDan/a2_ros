@@ -31,3 +31,9 @@
 [submodule "external/HesaiLidar"]
 	path = external/HesaiLidar
 	url = git@github.com:ETHZ-RobotX/HesaiLidar_ROS_2.0.git
+[submodule "src/object_detection"]
+	path = src/object_detection
+	url = git@github.com:ETHZ-RobotX/a2_object_detection.git
+[submodule "external/unitree_camera_bridge"]
+	path = external/unitree_camera_bridge
+	url = git@github.com:ETHZ-RobotX/unitree_camera_bridge.git
