@@ -37,3 +37,6 @@
 [submodule "external/unitree_camera_bridge"]
 	path = external/unitree_camera_bridge
 	url = git@github.com:ETHZ-RobotX/unitree_camera_bridge.git
+[submodule "external/gscam2"]
+	path = external/gscam2
+	url = https://github.com/clydemcqueen/gscam2.git
