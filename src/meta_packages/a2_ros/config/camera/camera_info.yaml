@@ -1,0 +1,35 @@
+# A2 head optical camera — PLACEHOLDER calibration.
+# Intrinsics are approximated from the published sensor spec, NOT a real
+# calibration. Re-run camera_calibration to get accurate values.
+#   Spec: max 2568x1448 @ 15fps, FOV D153 H132 V77
+#   fx = (width/2)  / tan(HFOV/2) = 1284 / tan(66.0) ~= 571.7
+#   fy = (height/2) / tan(VFOV/2) =  724 / tan(38.5) ~= 910.2
+#   cx, cy = image center
+# NOTE: this is a very wide-angle lens (153 diagonal); the plumb_bob model
+# with zero distortion is only a rough stand-in until calibrated.
+image_width: 2568
+image_height: 1448
+camera_name: camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [571.7,   0.0, 1284.0,
+           0.0, 910.2,  724.0,
+           0.0,   0.0,    1.0]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0,
+         0.0, 1.0, 0.0,
+         0.0, 0.0, 1.0]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [571.7,   0.0, 1284.0, 0.0,
+           0.0, 910.2,  724.0, 0.0,
+           0.0,   0.0,    1.0, 0.0]
