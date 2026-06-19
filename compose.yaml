@@ -7,14 +7,14 @@ x-common: &common
   # instead of the 64 MB default. Required for Zenoh shared-memory transport
   # (many sim nodes pushing point clouds/images would otherwise hit OS error 12).
   ipc: host
-  privileged: true
+  privileged: false
   # Allow the Zenoh SHM watchdog threads to set real-time scheduling priority
   # (otherwise they warn "error setting scheduling priority OS(1)") and lock
   # the SHM pools into memory.
-  ulimits:
-    rtprio: 99
-    nice: -20
-    memlock: -1
+  # ulimits:
+  #   rtprio: 99
+  #   nice: -20
+  #   memlock: -1
   # gpus: all
   environment:
     # Linux: inherits the host's DISPLAY (e.g. :0) for native X11 forwarding
