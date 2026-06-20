@@ -5,7 +5,7 @@ Starts the full exploration stack on top of the running sim:
   - terrain_analysis     : builds /terrain_map from /registered_scan + /state_estimation
   - terrain_analysis_ext : builds /terrain_map_ext (global terrain)
   - local_planner        : obstacle-aware path selection
-  - pathFollower         : converts waypoints to /cmd_vel
+  - pathFollower         : converts waypoints to velocity, remapped /nav_vel_cmd -> /cmd_vel (TwistStamped)
   - tare_planner         : autonomous coverage exploration (replaces far_planner)
 
 Prerequisites (provided by sim.launch.py + a2_bridge):
@@ -169,6 +169,9 @@ def generate_launch_description():
             executable='pathFollower',
             name='pathFollower',
             output='screen',
+            remappings=[
+                ('/nav_vel_cmd', '/cmd_vel'),  # cmd_vel is TwistStamped; pathFollower emits it directly
+            ],
             parameters=[{
                 'sensorOffsetX':    0.0,
                 'sensorOffsetY':    0.0,
