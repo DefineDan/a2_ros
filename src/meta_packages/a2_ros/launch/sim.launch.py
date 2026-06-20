@@ -44,7 +44,7 @@ def generate_launch_description():
     # ---------- launch arguments ----------
     scene_arg = DeclareLaunchArgument(
         'scene',
-        default_value='scene.xml',
+        default_value='scene_maze.xml',
         description='Scene XML filename inside share/a2_description/mjcf/'
     )
     rviz_arg = DeclareLaunchArgument(
